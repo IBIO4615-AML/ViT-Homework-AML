@@ -1,12 +1,6 @@
 # ViT-Homework-AML
 
-## Installation
-Clone this repository and run
-
-```
-pip install -r vit_jax/requirements.txt
-```
-The results from the original ViT paper (https://arxiv.org/abs/2010.11929) have been replicated using the models from [gs://vit_models/imagenet21k](https://console.cloud.google.com/storage/browser/vit_models/imagenet21k;tab=objects?prefix=&forceOnObjectsSortingFiltering=false):
+The paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929) show that Transformers applied directly to image patches and pre-trained on large datasets work really well on image recognition task. The results from this paper using various arquitectures and multiple datasets are in the table below. 
 
 | model	| dataset	| dropout=0.0	| dropout=0.1 |
 | --- | --- | --- | --- |
@@ -25,3 +19,22 @@ The results from the original ViT paper (https://arxiv.org/abs/2010.11929) have 
 |ViT-L_32	|cifar10	|99.06%, 1.9h (A100), tb.dev	|99.09%, 6.1h (V100), tb.dev|
 |ViT-L_32	|cifar100	|93.29%, 1.9h (A100), tb.dev	|93.34%, 6.2h (V100), tb.dev|
 |ViT-L_32	|imagenet2012|	81.89%, 7.5h (A100), tb.dev|	81.13%, 15.0h (V100), tb.dev|
+
+## First Task:
+
+Recreate the results from the ViT-B_16 arquitecture with the imagenet ??? dataset. Attach evidence from your results in this section of the repository:
+
+```
+# imagenet21k pre-train
+wget https://storage.googleapis.com/vit_models/imagenet21k/{MODEL_NAME}.npz
+
+# imagenet21k pre-train + imagenet2012 fine-tuning
+wget https://storage.googleapis.com/vit_models/imagenet21k+imagenet2012/{MODEL_NAME}.npz
+```
+
+######Evidence:
+
+
+## Second Task:
+
+As you already know, self-attention is essential in ViT, in order to  Carefully read and understand the ViT-B_16 arquitecture
