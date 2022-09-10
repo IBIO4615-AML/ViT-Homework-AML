@@ -1,6 +1,6 @@
 # ViT-Homework-AML
 
-The paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929) show that Transformers applied directly to image patches and pre-trained on large datasets work really well on image recognition task. The results from this paper using various arquitectures and multiple datasets are in the table below. 
+The paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929) shows that Transformers applied directly to image patches and pre-trained on large datasets work really well on image recognition tasks. The results from this paper using various arquitectures and multiple datasets are in the table below. 
 
 | model	| dataset	| dropout=0.0	| dropout=0.1 |
 | --- | --- | --- | --- |
@@ -22,14 +22,13 @@ The paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at 
 
 ## First Task:
 
-Recreate the results from the ViT-B_16 arquitecture with the imagenet ??? dataset. Attach evidence from your results in this section of the repository:
+Recreate the results from the ViT-B_16 arquitecture with the cifar10 dataset. Attach evidence from your results in this section of the repository:
 
 ```
-# imagenet21k pre-train
-wget https://storage.googleapis.com/vit_models/imagenet21k/{MODEL_NAME}.npz
+pip install -r requirements.txt
 
-# imagenet21k pre-train + imagenet2012 fine-tuning
-wget https://storage.googleapis.com/vit_models/imagenet21k+imagenet2012/{MODEL_NAME}.npz
+# imagenet21k pre-train
+wget https://storage.googleapis.com/vit_models/imagenet21k/ViT-B_16.npz
 ```
 
 ######Evidence:
