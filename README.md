@@ -6,7 +6,7 @@ Clone this repository and run
 ```
 pip install -r vit_jax/requirements.txt
 ```
-The results from the original ViT paper (https://arxiv.org/abs/2010.11929) have been replicated using the models from this [webpage](gs://vit_models/imagenet21k):
+The results from the original ViT paper (https://arxiv.org/abs/2010.11929) have been replicated using the models from [gs://vit_models/imagenet21k](https://console.cloud.google.com/storage/browser/vit_models/imagenet21k;tab=objects?prefix=&forceOnObjectsSortingFiltering=false):
 
 | model	| dataset	| dropout=0.0	| dropout=0.1 |
 | --- | --- | --- | --- |
