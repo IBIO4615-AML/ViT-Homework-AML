@@ -27,38 +27,48 @@ The paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at 
 Recreate the results from the ViT-B_16 architecture with the cifar10 dataset. Attach evidence from your results in your report.
 
 ```
-pip install -r requirements.txt
+#Previously install the requirements
+$ pip install -r requirements.txt
 
-# imagenet21k pre-train
-wget https://storage.googleapis.com/vit_models/imagenet21k/ViT-B_16.npz
+# Download the imagenet21k pre-train model
+$ wget https://storage.googleapis.com/vit_models/imagenet21k/ViT-B_16.npz
 
 #Run train.py
-python train.py --name cifar10-100_500 --dataset cifar10 --model_type ViT-B_16 --pretrained_dir ViT-B_16.npz
+$ python train.py --name cifar10-100_500 --dataset cifar10 --model_type ViT-B_16 --pretrained_dir ViT-B_16.npz
 ```
+Use [Automatic Mixed Precision(Amp)](https://nvidia.github.io/apex/amp.html) to reduce memory usage and train faster by setting --fp16_opt_level to O2 (--fp16 --fp16_opt_level O2).
 
-*Note: The default batch size is 512. When GPU memory is insufficient, you can proceed with training by adjusting the value of --gradient_accumulation_steps.
+*Note: Set train batch size and number of steps to 1000, otherwise it will take about 50 hours to run. 
+*Note: When GPU memory is insufficient, you can proceed with training by adjusting the value of --gradient_accumulation_steps to 10.
 
-## Second task:
+## Second task (1 point):
 
 Open the modeling.py file in the models folder. Explain in your own words *whats* happening between lines 83 to 91 (Find the #Start and #Finish comments) and *why*. Explain the relevance of the operations.  
 
-## Third Task:
+## Third Task (3 points):
 
 As you already know, self-attention is essential in ViT. The attention map for the input image can be visualized through the attention score of self-attention. Open the ViT_Visualize.py file. 
 
-###### Part A (0.5 points):
+###### Part A (1 point):
 
 Read the code and answer the questions/instructions included in the code. 
 
-###### Part B (1.5 points):
+###### Part B (1 point):
 
-Choose 6 images of 6 different categories (ej. golden retriever, piano, person, etc) from the internet. The image must be .jpg and you need to copy the image address and include it in the corresponding part of the code. Visualize the attention maps of the 6 images. Attach a subplot which includes the original image and the attention map obtained. 
+Choose 6 images of 6 different categories (ej. golden retriever, piano, person, etc) from the internet. 
 
-###### Part C ():
+**Specifications:**
+1. The image must be .jpg
+2. Copy the image address and include it in the corresponding part of the code
 
-Choose 3 images from the previous exercise and visualize the attention maps from the first, middle and last layer. Attach a subplot with the original image and the corresponding 3 attention maps. Write a brief description and explanation about the differences between layers. 
+Visualize the attention maps of the 6 images. Attach a subplot which includes the original images and the attention maps obtained. 
 
-## Hand Ins
-Report (.pdf)
-ViT_Visualize.py completed
+###### Part C (1 point):
+
+Choose 3 images from the previous exercise and visualize the attention maps from the _**first, middle and last layer**_. Attach a subplot with the original images and the corresponding 3 attention maps. Write a brief description and explanation about the differences between layers. 
+
+## Hand In
+Attach the required files to your homework repository. 
+1. Report (.pdf)
+2. ViT_Visualize.py completed
 
