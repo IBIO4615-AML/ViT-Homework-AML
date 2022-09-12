@@ -23,8 +23,9 @@ The paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at 
 |ViT-L_32	|imagenet2012| 81.13%, 15.0h (V100), tb.dev|
 
 ## First Task (1 point):
+*This first task takes about 6 hours to run so plan ahead*
 
-Recreate the results from the ViT-B_16 architecture with the cifar10 dataset. Attach evidence from your results in your report.
+Recreate the results from the ViT-B_16 architecture with the cifar10 dataset. Attach evidence from your results in your report. 
 
 ```
 #Previously install the requirements
@@ -49,7 +50,7 @@ Open the modeling.py file in the models folder. Explain in your own words *whats
 
 As you already know, self-attention is essential in ViT. The attention map for the input image can be visualized through the attention score of self-attention. Open the ViT_Visualize.py file. 
 
-###### Part A (1 point):
+###### Part A (1.5 point):
 
 Read the code and answer the questions/instructions included in the code. 
 
@@ -58,14 +59,23 @@ Read the code and answer the questions/instructions included in the code.
 Choose 6 images of 6 different categories (ej. golden retriever, piano, person, etc) from the internet. 
 
 **Specifications:**
-1. The image must be .jpg
-2. Copy the image address and include it in the corresponding part of the code
+1. Google Chrome recommended
+2. The image must be .jpg
+3. Copy the image address and include it in the corresponding part of the code
 
-Visualize the attention maps of the 6 images. Attach a subplot which includes the original images and the attention maps obtained. 
+Visualize the attention maps of the 6 images. Attach a subplot which includes the original images and the attention maps obtained. Include the predictions in your report. 
 
-###### Part C (1 point):
+An example of an attention map is shown below:
 
-Choose 3 images from the previous exercise and visualize the attention maps from the _**first, middle and last layer**_. Attach a subplot with the original images and the corresponding 3 attention maps. Write a brief description and explanation about the differences between layers. 
+![image](https://user-images.githubusercontent.com/99056045/189556124-587ce0de-b060-4495-ae2b-79fca0caef76.png)
+
+###### Part C (0.5 point):
+
+Choose 3 images from the previous exercise and visualize the attention maps from the _**first, middle and last layer**_. Attach a subplot with the original images and the corresponding 3 attention maps. Briefly analyze the different layers. 
+
+## BONO (0.25 points):
+
+Instead of using internet images, use 6 images taken by you. 
 
 ## Hand In
 Attach the required files to your homework repository. 
