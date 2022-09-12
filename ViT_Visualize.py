@@ -52,12 +52,13 @@ att_mat = torch.mean(att_mat, dim=1)
 
 # To account for residual connections, we add an identity matrix to the
 # attention matrix and re-normalize the weights.
-'''Create an identity matrix with dimensions [num_patches, num_patches]. Then add it to the attension matrix and asign this to 'aug_att_mat' before the line 58'''
-residual_att = torch.eye(att_mat.size(1)) #BORRAR!!!
-aug_att_mat = att_mat + residual_att #BORRAR!!!
+'''TODO: Create an identity matrix with dimensions [num_patches, num_patches] (Use torch). Then add it to the attention matrix and asign this result to 'aug_att_mat' before the line 58'''
+
+
 aug_att_mat = aug_att_mat / aug_att_mat.sum(dim=-1).unsqueeze(-1)
 
 # Recursively multiply the weight matrices
+'''QUESTION 2: Explain why the weight matrices are being recursively multiplied, taking into acount what we are trying to visualize'''
 joint_attentions = torch.zeros(aug_att_mat.size())
 joint_attentions[0] = aug_att_mat[0]
 
@@ -69,7 +70,8 @@ v = joint_attentions[-1]
 grid_size = int(np.sqrt(aug_att_mat.size(-1)))
 mask = v[0, 1:].reshape(grid_size, grid_size).detach().numpy()
 mask = cv2.resize(mask / mask.max(), im.size)[..., np.newaxis]
-result = (mask * im).astype("uint8")
+'''TODO:'''
+result = ('''What operation should go here''').astype("uint8") #HINT: Print mask and im. Remember what you want to visualize at the end. 
 
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(16, 16))
 
@@ -85,18 +87,4 @@ print("Prediction Label and Attention Map!\n")
 for idx in top5[0, :5]:
     print(f'{probs[0, idx.item()]:.5f} : {imagenet_labels[idx.item()]}', end='')
 
-'''
-#POR CAPAS
-
-for i, v in enumerate(joint_attentions):
-    # Attention from the output token to the input space.
-    mask = v[0, 1:].reshape(grid_size, grid_size).detach().numpy()
-    mask = cv2.resize(mask / mask.max(), im.size)[..., np.newaxis]
-    result = (mask * im).astype("uint8")
-
-    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(16, 16))
-    ax1.set_title('Original')
-    ax2.set_title('Attention Map_%d Layer' % (i+1))
-    _ = ax1.imshow(im)
-    _ = ax2.imshow(result)
-'''
+'''TODO: Use lines 71 to 81 to visualize the required attention maps by layers'''
